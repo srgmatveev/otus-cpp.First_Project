@@ -1,0 +1,30 @@
+language: cpp
+before_script:
+#  - sudo apt-get install libboost-test-dev -y
+  - sudo apt-get install googletest -y
+  - sudo apt-get install libgtest-dev -y
+  - sudo apt-get install google-mock -y
+  - sudo apt-get install cmake -y
+
+
+script:
+
+  - cd /usr/src/gtest
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+
+  - cd /usr/src/gmock
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+
+  - cmake .
+  - cmake --build .
+  - cmake --build . --target test
+  - cmake --build . --target package
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+  - curl -T First_Project-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -usrgmatveev:$BINTRAY_API_KEY "https://api.bintray.com/content/srgmatveev/otus-cpp/First_project/$TRAVIS_BUILD_NUMBER/First_Project-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
