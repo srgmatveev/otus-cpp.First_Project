@@ -6,7 +6,6 @@ before_script:
   - sudo apt-get install google-mock -y
   - sudo apt-get install cmake -y
 
-
 script:
 
   - cd /usr/src/gtest
