@@ -7,7 +7,7 @@ before_script:
   - sudo apt-get install cmake -y
 
 script:
-
+  - "export MYHOME=`pwd`"
   - cd /usr/src/gtest
   - sudo cmake CMakeLists.txt
   - sudo make
@@ -17,7 +17,7 @@ script:
  # - sudo cmake CMakeLists.txt
  # - sudo make
  # - sudo cp *.a /usr/lib
-
+  - cd "${MYHOME}"
   - cmake .
   - cmake --build .
   - cmake --build . --target test
