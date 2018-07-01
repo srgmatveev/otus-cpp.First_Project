@@ -1,9 +1,8 @@
 language: cpp
 before_script:
 #  - sudo apt-get install libboost-test-dev -y
-  #- sudo apt-get install googletest -y
   - sudo apt-get install libgtest-dev -y
-  #- sudo apt-get install google-mock -y
+  - sudo apt-get install google-mock -y
   - sudo apt-get install cmake -y
 
 script:
@@ -13,10 +12,11 @@ script:
   - sudo make
   - sudo cp *.a /usr/lib
 
- # - cd /usr/src/gmock
- # - sudo cmake CMakeLists.txt
- # - sudo make
- # - sudo cp *.a /usr/lib
+  - cd /usr/src/gmock
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+
   - cd "${MYHOME}"
   - cmake .
   - cmake --build .
