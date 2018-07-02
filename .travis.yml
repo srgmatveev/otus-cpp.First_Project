@@ -28,8 +28,8 @@ script:
   - sudo cmake CMakeLists.txt
   - sudo make
   - sudo cp *.a /usr/lib
-  - sudo cp  -p /usr/src/googletest/googletest/include /usr/gtest/include
-
+  - sudo mkdir -p /usr/include/gtest
+  - sudo cp  -rp  /usr/src/googletest/googletest/include/* /usr/include/gtest
 #  - cd /usr/src/gmock
 #  - sudo cmake CMakeLists.txt
 #  - sudo make
