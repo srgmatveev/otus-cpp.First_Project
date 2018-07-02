@@ -6,7 +6,7 @@ before_script:
   - sudo apt-get install cmake -y
 
 script:
-  - "export MYHOME=`pwd`"
+  - "MYHOME=`pwd`"
   - cd /usr/src/gtest
   - sudo cmake CMakeLists.txt
   - sudo make
