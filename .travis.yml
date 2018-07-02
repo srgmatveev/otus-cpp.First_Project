@@ -30,10 +30,15 @@ script:
   - sudo cp *.a /usr/lib
   - sudo mkdir -p /usr/include/gtest
   - sudo cp  -rp  /usr/src/googletest/googletest/include/* /usr/include/
-#  - cd /usr/src/gmock
-#  - sudo cmake CMakeLists.txt
-#  - sudo make
-#  - sudo cp *.a /usr/lib
+
+  - cd /usr/src/googletest/googlemock
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+  - sudo mkdir -p /usr/include/gmock
+  - sudo cp  -rp  /usr/src/googletest/googlemock/include/* /usr/include/
+
+
 
   - cd "${MYHOME}"
   - cmake .
