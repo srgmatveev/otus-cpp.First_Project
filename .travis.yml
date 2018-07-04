@@ -8,6 +8,7 @@ dist: trusty
 #  - sudo apt-get update -qq
 
 #install:
+  - sudo apt-get install doxygen -y
 #  # C++14
 #  - sudo apt-get install -qq g++-6
 #  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
